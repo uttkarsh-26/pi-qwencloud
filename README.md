@@ -1,6 +1,6 @@
 <div align="center">
 
-# ☁️ pi-qwencloud
+# ☁️ pi-qwencloud-token-plan-provider
 
 **Qwen Cloud Token Plan provider for [pi](https://github.com/earendil-works/pi-coding-agent)**
 
@@ -51,16 +51,16 @@ GLM 5.2 supports named reasoning effort levels mapped to pi's thinking selector:
 ### Option 1: `pi install` (Recommended)
 
 ```bash
-pi install npm:pi-qwencloud
+pi install npm:pi-qwencloud-token-plan-provider
 # or from GitHub
-pi install https://github.com/uttkarsh-26/pi-qwencloud
+pi install https://github.com/uttkarsh-26/pi-qwencloud-token-plan-provider
 ```
 
 ### Option 2: Manual
 
 ```bash
-git clone https://github.com/uttkarsh-26/pi-qwencloud.git
-pi -e /path/to/pi-qwencloud
+git clone https://github.com/uttkarsh-26/pi-qwencloud-token-plan-provider.git
+pi -e /path/to/pi-qwencloud-token-plan-provider
 ```
 
 ## Authentication

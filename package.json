@@ -1,6 +1,6 @@
 {
-  "name": "pi-qwencloud",
-  "version": "1.0.1",
+  "name": "pi-qwencloud-token-plan-provider",
+  "version": "1.0.0",
   "description": "Qwen Cloud Token Plan provider extension for pi — access Qwen, DeepSeek, GLM models via the Token Plan endpoint",
   "type": "module",
   "main": "index.ts",
@@ -27,11 +27,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uttkarsh-26/pi-qwencloud.git"
+    "url": "git+https://github.com/uttkarsh-26/pi-qwencloud-token-plan-provider.git"
   },
-  "homepage": "https://github.com/uttkarsh-26/pi-qwencloud#readme",
+  "homepage": "https://github.com/uttkarsh-26/pi-qwencloud-token-plan-provider#readme",
   "bugs": {
-    "url": "https://github.com/uttkarsh-26/pi-qwencloud/issues"
+    "url": "https://github.com/uttkarsh-26/pi-qwencloud-token-plan-provider/issues"
   },
   "files": [
     "index.ts",
