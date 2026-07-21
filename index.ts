@@ -1,38 +1,15 @@
 /**
- * Qwen Cloud Token Plan Provider Extension
- *
- * Registers Qwen Cloud Token Plan as a custom provider for pi.
- * Base URL: https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1
- *
- * Supports all text models available on Token Plan Individual:
- *   - Qwen: qwen3.8-max-preview, qwen3.7-max, qwen3.7-plus, qwen3.6-flash
- *   - Zhipu AI: glm-5.2
- *   - DeepSeek: deepseek-v4-pro
- *
- * Thinking modes:
- *   - Qwen models: hybrid (enable_thinking toggle via thinkingFormat: "qwen")
- *   - GLM 5.2: named reasoning_effort levels (none → max)
- *   - DeepSeek V4 Pro: hybrid (enable_thinking toggle)
- *
- * Authentication:
- *   Token Plan API keys start with sk-sp-
- *
- *   Option 1 (recommended): Add to ~/.pi/agent/auth.json
- *     { "qwen-cloud": { "type": "api_key", "key": "sk-sp-..." } }
- *
- *   Option 2: Set environment variable
- *     export QWEN_CLOUD_API_KEY=sk-sp-...
- *
- * Usage:
- *   pi install https://github.com/<your-username>/pi-qwencloud
- *   # or
- *   pi -e /path/to/pi-qwencloud-provider
- *
- * Then use /model to select from available models.
+ * Qwen Cloud Token Plan provider for pi.
  *
  * @see https://docs.qwencloud.com/token-plan/personal/token-plan-personal-overview
  */
 
+import {
+  clampThinkingLevel,
+  streamOpenAICompletions,
+  type AssistantMessageEventStream,
+  type SimpleStreamOptions,
+} from "@earendil-works/pi-ai/compat";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import modelsData from "./models.json" with { type: "json" };
 
@@ -43,22 +20,59 @@ interface JsonModel {
   id: string;
   name: string;
   reasoning: boolean;
-  input: string[];
+  input: Array<"text" | "image">;
   cost: { input: number; output: number; cacheRead: number; cacheWrite: number };
   contextWindow: number;
   maxTokens: number;
-  thinkingLevelMap?: Record<string, string | null>;
+  thinkingLevelMap?: Partial<Record<"off" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max", string | null>>;
   compat?: Record<string, unknown>;
 }
 
-export default function (pi: ExtensionAPI) {
-  const models = modelsData as JsonModel[];
+function streamQwenCloud(
+  model: any,
+  context: any,
+  options?: SimpleStreamOptions,
+): AssistantMessageEventStream {
+  const selectedLevel = options?.reasoning
+    ? clampThinkingLevel(model, options.reasoning)
+    : "off";
+  const thinkingEnabled = selectedLevel !== "off";
+  const mappedEffort = model.thinkingLevelMap?.[selectedLevel] ?? selectedLevel;
+  const supportsEffort = model.id === "glm-5.2" || model.id === "deepseek-v4-pro";
+  const userOnPayload = options?.onPayload;
+  const { reasoning: _reasoning, ...streamOptions } = options ?? {};
 
+  return streamOpenAICompletions(
+    { ...model, api: "openai-completions", baseUrl: model.baseUrl || BASE_URL },
+    context,
+    {
+      ...streamOptions,
+      reasoningEffort: thinkingEnabled ? selectedLevel : undefined,
+      onPayload: async (params: any, payloadModel: any) => {
+        let payload = params;
+        if (userOnPayload) {
+          const updated = await userOnPayload(payload, payloadModel);
+          if (updated !== undefined) payload = updated;
+        }
+
+        payload = { ...payload, enable_thinking: thinkingEnabled };
+        if (supportsEffort) {
+          payload.reasoning_effort = thinkingEnabled ? mappedEffort : "none";
+        }
+
+        return payload;
+      },
+    },
+  );
+}
+
+export default function (pi: ExtensionAPI) {
   pi.registerProvider(PROVIDER_ID, {
     name: "Qwen Cloud (Token Plan)",
     baseUrl: BASE_URL,
     apiKey: "$QWEN_CLOUD_API_KEY",
     api: "openai-completions",
-    models,
+    models: modelsData as JsonModel[],
+    streamSimple: streamQwenCloud,
   });
 }

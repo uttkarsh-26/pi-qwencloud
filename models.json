@@ -7,10 +7,18 @@
     "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
     "contextWindow": 1048576,
     "maxTokens": 65536,
+    "thinkingLevelMap": {
+      "minimal": null,
+      "low": null,
+      "medium": null,
+      "high": "enabled"
+    },
     "compat": {
       "thinkingFormat": "qwen",
       "supportsDeveloperRole": false,
-      "supportsStore": false
+      "supportsStore": false,
+      "maxTokensField": "max_tokens",
+      "requiresReasoningContentOnAssistantMessages": true
     }
   },
   {
@@ -21,10 +29,18 @@
     "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
     "contextWindow": 1048576,
     "maxTokens": 65536,
+    "thinkingLevelMap": {
+      "minimal": null,
+      "low": null,
+      "medium": null,
+      "high": "enabled"
+    },
     "compat": {
       "thinkingFormat": "qwen",
       "supportsDeveloperRole": false,
-      "supportsStore": false
+      "supportsStore": false,
+      "maxTokensField": "max_tokens",
+      "requiresReasoningContentOnAssistantMessages": true
     }
   },
   {
@@ -35,10 +51,18 @@
     "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
     "contextWindow": 1048576,
     "maxTokens": 65536,
+    "thinkingLevelMap": {
+      "minimal": null,
+      "low": null,
+      "medium": null,
+      "high": "enabled"
+    },
     "compat": {
       "thinkingFormat": "qwen",
       "supportsDeveloperRole": false,
-      "supportsStore": false
+      "supportsStore": false,
+      "maxTokensField": "max_tokens",
+      "requiresReasoningContentOnAssistantMessages": true
     }
   },
   {
@@ -49,10 +73,18 @@
     "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
     "contextWindow": 1048576,
     "maxTokens": 65536,
+    "thinkingLevelMap": {
+      "minimal": null,
+      "low": null,
+      "medium": null,
+      "high": "enabled"
+    },
     "compat": {
       "thinkingFormat": "qwen",
       "supportsDeveloperRole": false,
-      "supportsStore": false
+      "supportsStore": false,
+      "maxTokensField": "max_tokens",
+      "requiresReasoningContentOnAssistantMessages": true
     }
   },
   {
@@ -64,7 +96,7 @@
     "contextWindow": 1048576,
     "maxTokens": 16384,
     "thinkingLevelMap": {
-      "off": null,
+      "off": "none",
       "minimal": "minimal",
       "low": "low",
       "medium": "medium",
@@ -76,7 +108,8 @@
       "thinkingFormat": "qwen",
       "supportsDeveloperRole": false,
       "supportsStore": false,
-      "supportsReasoningEffort": true
+      "maxTokensField": "max_tokens",
+      "requiresReasoningContentOnAssistantMessages": true
     }
   },
   {
@@ -86,11 +119,22 @@
     "input": ["text"],
     "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
     "contextWindow": 1048576,
-    "maxTokens": 384000,
+    "maxTokens": 393216,
+    "thinkingLevelMap": {
+      "off": "none",
+      "minimal": null,
+      "low": "low",
+      "medium": "medium",
+      "high": "high",
+      "xhigh": "xhigh",
+      "max": "max"
+    },
     "compat": {
       "thinkingFormat": "qwen",
       "supportsDeveloperRole": false,
-      "supportsStore": false
+      "supportsStore": false,
+      "maxTokensField": "max_tokens",
+      "requiresReasoningContentOnAssistantMessages": true
     }
   }
 ]

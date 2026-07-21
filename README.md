@@ -16,7 +16,7 @@ _Qwen, GLM, DeepSeek — with proper thinking level support via the Token Plan e
 ## Features
 
 - **6 text models** — Qwen3.8 Max Preview, Qwen3.7 Max/Plus, Qwen3.6 Flash, GLM 5.2, DeepSeek V4 Pro
-- **Thinking support** — proper `enable_thinking` for Qwen/DeepSeek, named `reasoning_effort` levels for GLM
+- **Thinking support** — `enable_thinking` for every model, with native `reasoning_effort` levels for GLM and DeepSeek
 - **Vision models** — Qwen3.8 Max Preview, Qwen3.7 Plus, Qwen3.6 Flash accept image input
 - **1M context** — all models support up to 1M token context windows
 - **Zero config** — just set your API key and go
@@ -30,7 +30,7 @@ _Qwen, GLM, DeepSeek — with proper thinking level support via the Token Plan e
 | qwen3.7-plus | 1M | ✅ | ✅ | on/off (`enable_thinking`) |
 | qwen3.6-flash | 1M | ✅ | ✅ | on/off (`enable_thinking`) |
 | glm-5.2 | 1M | ✅ | — | 7 levels (`reasoning_effort`) |
-| deepseek-v4-pro | 1M | ✅ | — | on/off (`enable_thinking`) |
+| deepseek-v4-pro | 1M | ✅ | — | `off`, `low`, `medium`, `high`, `xhigh`, `max` |
 
 ### GLM 5.2 Thinking Levels
 
@@ -38,7 +38,7 @@ GLM 5.2 supports named reasoning effort levels mapped to pi's thinking selector:
 
 | pi Level | GLM `reasoning_effort` |
 |----------|----------------------|
-| off | *(thinking disabled)* |
+| off | `none` |
 | minimal | `minimal` |
 | low | `low` |
 | medium | `medium` |
@@ -51,13 +51,13 @@ GLM 5.2 supports named reasoning effort levels mapped to pi's thinking selector:
 ### Option 1: `pi install` (Recommended)
 
 ```bash
-pi install https://github.com/<your-username>/pi-qwencloud
+pi install https://github.com/uttkarsh-26/pi-qwencloud
 ```
 
 ### Option 2: Manual
 
 ```bash
-git clone https://github.com/<your-username>/pi-qwencloud.git
+git clone https://github.com/uttkarsh-26/pi-qwencloud.git
 pi -e /path/to/pi-qwencloud
 ```
 

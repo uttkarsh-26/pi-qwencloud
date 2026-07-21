@@ -11,6 +11,7 @@
   },
   "keywords": [
     "pi-package",
+    "pi-extension",
     "pi",
     "extension",
     "provider",
@@ -22,8 +23,26 @@
     "alibaba",
     "dashscope"
   ],
-  "author": "uttkarsh",
+  "author": "uttkarsh26",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uttkarsh-26/pi-qwencloud.git"
+  },
+  "homepage": "https://github.com/uttkarsh-26/pi-qwencloud#readme",
+  "bugs": {
+    "url": "https://github.com/uttkarsh-26/pi-qwencloud/issues"
+  },
+  "files": [
+    "index.ts",
+    "models.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*"
+  },
   "pi": {
     "extensions": [
       "./index.ts"
