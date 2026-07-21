@@ -1,6 +1,6 @@
 {
-  "name": "pi-qwencloud-provider",
-  "version": "1.0.0",
+  "name": "pi-qwencloud",
+  "version": "1.0.1",
   "description": "Qwen Cloud Token Plan provider extension for pi — access Qwen, DeepSeek, GLM models via the Token Plan endpoint",
   "type": "module",
   "main": "index.ts",
