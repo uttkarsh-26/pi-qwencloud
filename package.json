@@ -1,0 +1,31 @@
+{
+  "name": "pi-qwencloud",
+  "version": "1.0.0",
+  "description": "Qwen Cloud Token Plan provider extension for pi — access Qwen, DeepSeek, GLM models via the Token Plan endpoint",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "clean": "echo 'nothing to clean'",
+    "build": "echo 'nothing to build'",
+    "check": "echo 'nothing to check'"
+  },
+  "keywords": [
+    "pi",
+    "extension",
+    "provider",
+    "qwencloud",
+    "qwen",
+    "token-plan",
+    "deepseek",
+    "glm",
+    "alibaba",
+    "dashscope"
+  ],
+  "author": "uttkarsh",
+  "license": "MIT",
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

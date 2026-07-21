@@ -1,0 +1,96 @@
+[
+  {
+    "id": "qwen3.8-max-preview",
+    "name": "Qwen3.8 Max Preview",
+    "reasoning": true,
+    "input": ["text", "image"],
+    "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+    "contextWindow": 1048576,
+    "maxTokens": 65536,
+    "compat": {
+      "thinkingFormat": "qwen",
+      "supportsDeveloperRole": false,
+      "supportsStore": false
+    }
+  },
+  {
+    "id": "qwen3.7-max",
+    "name": "Qwen3.7 Max",
+    "reasoning": true,
+    "input": ["text"],
+    "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+    "contextWindow": 1048576,
+    "maxTokens": 65536,
+    "compat": {
+      "thinkingFormat": "qwen",
+      "supportsDeveloperRole": false,
+      "supportsStore": false
+    }
+  },
+  {
+    "id": "qwen3.7-plus",
+    "name": "Qwen3.7 Plus",
+    "reasoning": true,
+    "input": ["text", "image"],
+    "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+    "contextWindow": 1048576,
+    "maxTokens": 65536,
+    "compat": {
+      "thinkingFormat": "qwen",
+      "supportsDeveloperRole": false,
+      "supportsStore": false
+    }
+  },
+  {
+    "id": "qwen3.6-flash",
+    "name": "Qwen3.6 Flash",
+    "reasoning": true,
+    "input": ["text", "image"],
+    "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+    "contextWindow": 1048576,
+    "maxTokens": 65536,
+    "compat": {
+      "thinkingFormat": "qwen",
+      "supportsDeveloperRole": false,
+      "supportsStore": false
+    }
+  },
+  {
+    "id": "glm-5.2",
+    "name": "GLM 5.2",
+    "reasoning": true,
+    "input": ["text"],
+    "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+    "contextWindow": 1048576,
+    "maxTokens": 16384,
+    "thinkingLevelMap": {
+      "off": null,
+      "minimal": "minimal",
+      "low": "low",
+      "medium": "medium",
+      "high": "high",
+      "xhigh": "xhigh",
+      "max": "max"
+    },
+    "compat": {
+      "thinkingFormat": "qwen",
+      "supportsDeveloperRole": false,
+      "supportsStore": false,
+      "supportsReasoningEffort": true
+    }
+  },
+  {
+    "id": "deepseek-v4-pro",
+    "name": "DeepSeek V4 Pro",
+    "reasoning": true,
+    "input": ["text"],
+    "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+    "contextWindow": 1048576,
+    "maxTokens": 384000,
+    "compat": {
+      "thinkingFormat": "qwen",
+      "supportsDeveloperRole": false,
+      "supportsStore": false
+    }
+  }
+]
